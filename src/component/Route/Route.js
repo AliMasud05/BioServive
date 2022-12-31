@@ -1,7 +1,9 @@
 
+import Shops from "../../pages/CollectShop/Shops";
 import { Contact } from "../../pages/Contact/Contact";
 import Events from "../../pages/Events/Events";
 import Home from "../../pages/Home/Home";
+import MemberForm from "../Form/MemberForm";
 
 
 
@@ -24,6 +26,15 @@ const { default: Main } = require("../../Layout/Main");
             {
                 path:'/contact',
                 element:<Contact/>
+            },
+            
+            {
+                path:'/memberform',
+                element:<MemberForm/>
+            },
+            {
+                path:'/shops',
+                element:<Shops/>
             },
             
 

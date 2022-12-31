@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { hover } from "@testing-library/user-event/dist/hover";
 import { Colors } from "../theme";
 
 export const BannerContainer = styled(Box)(({ matches, theme }) => ({
@@ -13,6 +14,9 @@ export const BannerContainer = styled(Box)(({ matches, theme }) => ({
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     alignItems: "center",
+    height: "100vh",
+    marginTop:'-10px'
+  
   },
   [theme.breakpoints.down("md")]: {
     flexDirection: "column",
@@ -45,6 +49,7 @@ export const BannerImage = styled("img")(({ src, theme }) => ({
   flex:'1',
   [theme.breakpoints.down("md")]: {
     width: "100%",
+    display:'none'
   },
   [theme.breakpoints.down("sm")]: {
     width: "100%",
@@ -89,6 +94,7 @@ export const BannerShopButton = styled(Button, {
   backgroundColor:'#3F0071',
   fontWeight: "bold",
   fontSize: "16px",
+  
   [theme.breakpoints.down("sm")]: {
     padding: "10px 0px",
     fontSize: "14px",

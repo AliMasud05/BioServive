@@ -40,7 +40,7 @@ const Member = () => {
                   mt: '3px',
                   
                   backgroundImage:
-                      "url('https://i.ibb.co/WvdXLJC/jason-zhao-eeu3p-Oc-U0h0-unsplash.jpg')",
+                      "url('https://i.ibb.co/zXSCbfq/annie-spratt-y-I3we-KNBRTc-unsplash.jpg')",
                  backgroundPosition:'center',
                  backgroundSize:'cover',
                  
@@ -67,7 +67,7 @@ const Member = () => {
                           color: '#483434'
 
 
-                      }}><Link className='dnone' sx={{
+                      }}><Link className='dnone' to='/memberform' sx={{
                           textDecorationLine: 'none'
                       }}>Be a Member</Link></Button>
                   </Stack>

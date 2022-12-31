@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import { Menu, MenuItem } from '@mui/material';
 
 
 
@@ -21,6 +22,16 @@ const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
 
 export default function Header(props) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    function handleClick(event) {
+        setAnchorEl(event.currentTarget);
+    }
+
+    function handleClose() {
+        setAnchorEl(null);
+    }
+
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -57,10 +68,11 @@ export default function Header(props) {
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
+
     return (
         <Box sx={{ display: 'flex', mb:'70px'}}>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar color="primary" sx={{ backgroundColor:'#146356'}} component="nav">
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -81,11 +93,36 @@ export default function Header(props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         
-                        <Button><NavLink to='/'>Home</NavLink></Button>
-                        <Button><NavLink to='/events'>Event</NavLink></Button>
-                        <Button><NavLink>Service</NavLink></Button>
-                        <Button><NavLink>Blog</NavLink></Button>
-                        <Button><NavLink to='/contact'>Contact US</NavLink></Button>
+                        <Button sx={{mx:'3px', }}><NavLink  className='dnone' sx={{color:'#7882A4', }}  to='/'>Home</NavLink></Button>
+                        <Button sx={{ mx:'3px', }}><NavLink  className='dnone' sx={{color:'#7882A4', }} to='/events'>Event</NavLink></Button>
+                        <Button sx={{ mx:'3px', }}><NavLink  className='dnone' sx={{color:'#7882A4', }}>Service</NavLink></Button>
+                        <Button sx={{ mx:'3px', }}><NavLink  className='dnone' sx={{color:'#7882A4', }} to='/shops'>Waste Collection Shop</NavLink></Button>                     
+                        <Button sx={{ mx:'3px', }}><NavLink  className='dnone' sx={{color:'#7882A4', }}>Blog</NavLink></Button>
+                        <Button sx={{ mx: '3px', }}><NavLink className='dnone' sx={{ color: '#7882A4', }} to='/contact'>Contact Us</NavLink></Button>
+                        
+                     
+                       
+                            <Button
+                                aria-owns={anchorEl ? "simple-menu" : undefined}
+                                aria-haspopup="true"
+                                onClick={handleClick}
+                                onMouseEnter={handleClick}
+                            sx={{ backgroundColor: '#7882A4', mx: '3px', color: '#146356' }}
+                            >
+                                GET INVOLVED
+                            </Button>
+                            <Menu
+                                id="simple-menu"
+                                anchorEl={anchorEl}
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                                onMouseLeave={handleClose}
+                            >
+                            <MenuItem ><NavLink className='dnone' to='/shops'>Volunteer</NavLink></MenuItem>
+                            <MenuItem ><NavLink className='dnone' to='/shops'>Careers</NavLink></MenuItem>
+                            
+                            </Menu>
+                      
                         
                     </Box>
                 </Toolbar>

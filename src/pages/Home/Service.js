@@ -49,7 +49,11 @@ const Service = () => {
     },
   ];
   return (
-    <Box sx={{ py: 2, backgroundColor: "#C8DBBE" }}>
+    <Box sx={{ py: 2,
+      backgroundImage:
+        "url('https://i.ibb.co/6wKPMYt/kiwihug-IICTER2-Cco-A-unsplash.jpg')",
+      backgroundPosition: 'center',
+      backgroundSize: 'cover', }}>
       <Typography variant="h4" color="#5F8D4E" textAlign="center">
         Services & Solutions
       </Typography>
@@ -84,11 +88,11 @@ const Service = () => {
               md={4}
               key={index}
             >
-              <Card sx={{ maxWidth: 345 }}>
+              <Card sx={{ maxWidth: 345,height:'400px' }}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
+                    height="200"
                     image={data.img}
                     alt="green iguana"
                   />
