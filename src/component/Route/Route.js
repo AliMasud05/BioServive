@@ -1,6 +1,7 @@
 
 import Shops from "../../pages/CollectShop/Shops";
-import { Contact } from "../../pages/Contact/Contact";
+import Contact from "../../pages/Contact/Contact";
+
 import Events from "../../pages/Events/Events";
 import Home from "../../pages/Home/Home";
 import MemberForm from "../Form/MemberForm";

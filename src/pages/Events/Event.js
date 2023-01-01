@@ -13,6 +13,15 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function Event() {
+    const handleEvent = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const number = form.number.value;
+       
+        console.log(email, name,number);
+    }
 
     const [open, setOpen] = React.useState(false);
 
@@ -52,26 +61,21 @@ export default function Event() {
                 <DialogTitle>Subscribe</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
+                        Join With US
                     </DialogContentText>
-                    <form>
+                    <form onSubmit={handleEvent}>
                         <Grid container spacing={1}>
-                            <Grid xs={12} sm={6} item>
-                                <TextField placeholder="Enter first name" label="First Name" variant="outlined" fullWidth required />
+                            <Grid xs={12}  item>
+                                <TextField name='name' placeholder="Enter your name" label="First Name" variant="outlined" fullWidth required />
                             </Grid>
-                            <Grid xs={12} sm={6} item>
-                                <TextField placeholder="Enter last name" label="Last Name" variant="outlined" fullWidth required />
+                            
+                            <Grid item xs={12}>
+                                <TextField name='email' type="email" placeholder="Enter email" label="Email" variant="outlined" fullWidth required />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField type="email" placeholder="Enter email" label="Email" variant="outlined" fullWidth required />
+                                <TextField name='number' type="number" placeholder="Enter phone number" label="Phone" variant="outlined" fullWidth required />
                             </Grid>
-                            <Grid item xs={12}>
-                                <TextField type="number" placeholder="Enter phone number" label="Phone" variant="outlined" fullWidth required />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField label="Message" multiline rows={4} placeholder="Type your message here" variant="outlined" fullWidth required />
-                            </Grid>
+                            
                             <Grid item xs={12}>
                                 <Button type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
                             </Grid>
@@ -82,7 +86,7 @@ export default function Event() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    
                 </DialogActions>
             </Dialog>
            

@@ -32,6 +32,15 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 export default function Shop() {
+    const handleShop = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const quantity = form.quantity.value;
+        
+        console.log(email, name,  quantity);
+    }
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -92,28 +101,25 @@ export default function Shop() {
                 </ExpandMore>
             </CardActions>
             <Dialog open={open}  onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Waste Details</DialogTitle>
                 <DialogContent sx={{
-                    backgroundColor: '#FEF5ED'
+                    
                 }}>
                     <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
+                        give your waste to recycle for protect enviroment
                     </DialogContentText>
-                    <form>
+                    <form onSubmit={handleShop}>
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <TextField placeholder="Enter first name" label="First Name" variant="outlined" fullWidth required />
+                                <TextField name='name' placeholder="Enter your name" label="First Name" variant="outlined" fullWidth required />
                             </Grid>
+                            
                             <Grid item xs={12}>
-                                <TextField placeholder="Enter last name" label="Last Name" variant="outlined" fullWidth required />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField type="email" placeholder="Enter email" label="Email" variant="outlined" fullWidth required />
+                                <TextField name='email' type="email" placeholder="Enter email" label="Email" variant="outlined" fullWidth required />
                             </Grid>
                            
                             <Grid item xs={12}>
-                                <TextField type="text" placeholder="Waste Quantity" label="Quantity/kg" variant="outlined" fullWidth required />
+                                <TextField name='quantity' type="text" placeholder="Waste Quantity" label="Quantity/kg" variant="outlined" fullWidth required />
                             </Grid>
                             
                             <Grid item xs={12}>
@@ -127,7 +133,7 @@ export default function Shop() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    
                 </DialogActions>
             </Dialog>
            

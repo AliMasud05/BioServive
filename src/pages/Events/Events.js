@@ -1,4 +1,5 @@
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
+import { Stack } from '@mui/system'
 import React from 'react'
 import Event from './Event'
 
@@ -6,7 +7,11 @@ const Events = () => {
   return (
 
 
-    <Box sx={{ backgroundColor: '#76BA99',py:2 }}>
+    <Box sx={{ backgroundColor: '#76BA99',py:2, mt:'-3px' }}>
+      <Stack spacing={3}>
+        <Typography textAlign='center' variant='h3' sx={{fontWeight:700}}>Join Our Upcoming Event </Typography>
+      <Typography textAlign='center' mb='4px'>We are friendly and available to chat.Reach out to us anytime and we'll happily answer your questions </Typography>
+      </Stack>
       <Box sx={{ width: "65%", mx: "auto" }}>
         <Grid
           container
